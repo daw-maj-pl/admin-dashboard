@@ -42,6 +42,7 @@ const Datatable = () => {
         </Link>
       </div>
       <DataGrid
+        className="datagrid"
         rows={data}
         columns={userColumns.concat(actionColumn)}
         pageSize={9}
