@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
 import {
   addDoc,
@@ -16,6 +17,7 @@ import './new.scss';
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState('');
   const [data, setData] = useState({});
+  const navigate = useNavigate();
 
   const handleInput = e => {
     const id = e.target.id;
@@ -36,6 +38,7 @@ const New = ({ inputs, title }) => {
         ...data,
         timeStamp: serverTimestamp()
       });
+      navigate(-1);
     } catch (err) {
       console.log(err);
     }
